@@ -61,3 +61,13 @@ try {
     console.error(err);
 }
 
+// Node.js Modules
+// Built in Modules ->
+fs
+Path
+http
+os
+
+const path = require("path");
+console.log(path.join(__dirname, "files", "test.txt"));
+
