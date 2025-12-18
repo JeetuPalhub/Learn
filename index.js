@@ -36,3 +36,28 @@ fs.readFile("file.txt", (err, data) => {
     console.log(data);
 });
 // non-blocking code
+
+
+// callback hell
+login(user, () => {
+    getData(() => {
+        saveData(() => {});
+    });
+});
+
+// Promises
+login(user)
+.then(getData)
+.then(saveData)
+.catch(console.error);
+
+
+// Async / Await
+try {
+    await login(user);
+    await getData();
+    await saveData();
+} catch (err) {
+    console.error(err);
+}
+
