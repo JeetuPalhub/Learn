@@ -16,3 +16,23 @@ console.log(data4);
 
 const data5 = fs.readFileSync("file.txt");
 console.log(data5);
+// blocking code
+
+
+//async code
+fs.readFile("file.txt", (err, data) => {
+    console.log(data);
+});
+
+fs.readFile("file.txt", (err, data) => {
+    console.log(data);
+});
+
+fs.readFile("file.txt", (err, data) => {
+    console.log(data);
+});
+
+fs.readFile("file.txt", (err, data) => {
+    console.log(data);
+});
+// non-blocking code
