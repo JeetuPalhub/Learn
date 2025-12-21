@@ -1,16 +1,21 @@
-const user = await User.create({
-    name:"jeetu",
-    Password:"12345",
-    email: "jeetu@gmail.com"
-})
+const User = require("../models/User");
 
-const user = await User.find()
-const user = await User.findById(id)
+//post /api/users
+const createUser = async (req, res) => {
+    const user = await User.create(req.body);
+    res.status(201).json(user)
+}
 
-const user = await User.findByIdAndUpdate(
-    id,
-    {name: "update"},
-    {new: true}
-)
+// get /api/users
+const getUser = async (req, res) => {
+    const users = await User.find();
+    res.json(users)
+}
 
-const user = await User.findByIdAndDelete(id)
+// delete /api/users/:id
+const deleteUser = async (req, res) => {
+    await User.findByIdAndDelete(req.params.id);
+    res.json({ message: "User deleted"})
+}
+
+module.exports = { createUser, getUser, deleteUser };
